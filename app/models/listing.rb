@@ -7,6 +7,7 @@ class Listing < ActiveRecord::Base
 	end
 
 	validates :name, :description, :application, presence: true
-	
+
+	belongs_to :user
   #validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end
