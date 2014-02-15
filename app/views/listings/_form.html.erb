@@ -1,7 +1,8 @@
 <%= form_for(@listing, :html => { :multipart => true }) do |f| %>
   <% if @listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h4>
 
       <ul>
       <% @listing.errors.full_messages.each do |msg| %>
@@ -12,19 +13,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control", placeholder: "Enter type of document (Personal Statement, Secondary, etc)" %>
+    <%= f.label :name %><br>Enter type of document (Personal Statement, Secondary Application, Sample writing, etc<br>
+    <%= f.text_field :name, class: "form-control", placeholder: "Document type" %>
   </div>
   <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control", placeholder: "Enter details (school, program, background, etc)" %>
+    <%= f.label :description %><br>Provide some details to help us understand your request (school, major, program)
+    <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
   </div>
   <div class="form-group">
     <%= f.label :application %><br>
-    <%= f.text_area :application, class: "form-control", placeholder: "Copy and paste application here" %>
+    <%= f.text_area :application, class: "form-control", placeholder: "Paste your application here" %>
   </div>
   <div class="form-group">
-    <%= f.label :image %><br>
+    <%= f.label :image %><br>Optional
     <%= f.file_field :image, class: "form-control", placeholder: "Enter email" %>
     <p class="help-block">Attach the document for review</p>
   </div>
